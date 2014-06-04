@@ -1,0 +1,5 @@
+from envs.live import *
+
+DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+COMPRESS_STORAGE = DEFAULT_FILE_STORAGE
+STATICFILES_STORAGE = DEFAULT_FILE_STORAGE

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+export MEMCACHE_SERVERS='' MEMCACHIER_SERVERS=''
+
+echo "-----> Collecting Static"
+python manage.py collectstatic --noinput --settings=envs.live_local
+python manage.py collectstatic --noinput --settings=envs.live
+
+echo "-----> Compress"
+python manage.py compress --settings=envs.live
+
+echo "-----> Sync to S3"
+python manage.py sync_static --gzip --expires --settings=envs.live
+
+echo "-----> Post-compile done"

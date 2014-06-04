@@ -1,0 +1,20 @@
+[
+{
+    "pk": 1, 
+    "model": "auth.user", 
+    "fields": {
+        "username": "skoczen", 
+        "first_name": "", 
+        "last_name": "", 
+        "is_active": true, 
+        "is_superuser": true, 
+        "is_staff": true, 
+        "last_login": "2013-11-24T14:01:46.535", 
+        "groups": [], 
+        "user_permissions": [], 
+        "password": "pbkdf2_sha256$10000$cgpTa1HltnKA$IA4VDeHL0lEBz62EdiOZa8w5+CtSLVmia22qcQSiCjc=", 
+        "email": "skoczen@gmail.com", 
+        "date_joined": "2013-11-24T14:01:46.535"
+    }
+}
+]
