@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "Pause",
-  "description": "Pause habitual browsing, and press play on your life.",
+  "name": "Mindful Browsing",
+  "description": "Beautifully interrupts mindless browsing, and gets you back to your life.",
   "version": "1.0",
 
   "permissions": [
@@ -15,8 +15,14 @@
     {
       "matches": ["<all_urls>"],
       "css": ["style.css"],
-      "js": ["dotcom.js"]
+      "js": ["mindful.js"]
     }
+  ],
+  "web_accessible_resources": [
+    "images/*.png",
+    "images/*.jpg",
+    "style.css",
+    "mindful.js"
   ],
   "browser_action": {
     "default_icon": "icon.png",

@@ -1,10 +1,57 @@
-#pause_confirm {
+#mindfulBrowsingConfirm {
     position: absolute;
+    font-size: 16px;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     width: 100%;
-    background: #FFF;
+    background: #CCC;
     z-index: 9999999999;
+    text-align: center;
+
+    font-family: Lato, "Helvetica Neue", sans-serif;
+    font-weight: 300;
+
+    background-color: #888;
+    background:url('chrome-extension://__MSG_@@extension_id__/images/lookout.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover; /* For WebKit*/
+    -moz-background-size: cover;    /* Mozilla*/
+    -o-background-size: cover;      /* Opera*/
+    background-size: cover;         /* Generic*/
+
+}
+
+#mindfulBrowsingConfirm h1, #mindfulBrowsingConfirm h2 {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 100;
+    font-size: 40px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+}
+#mindfulBrowsingConfirm h1 {
+    margin-bottom: 40px;
+}
+#mindfulBrowsingConfirm h2 {
+    font-size: 20px;
+}
+#mindfulBrowsingConfirm .mindfulBrowsingHeading {
+    /*background: rgba(255, 255, 255, 0.1);*/
+    padding: 50px 0;
+    font-size: 20px;
+    margin: 80px auto;
+}
+#mindfulBrowsingConfirm a.mindfulBtn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 50px;
+    border-radius: 10px;
+    text-decoration: none;
+    background-color: #CCC;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.4);
+    transition: background 0.4s ease, color 0.4s ease;
+}
+#mindfulBrowsingConfirm a.mindfulBtn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.8);
 }
