@@ -7,6 +7,7 @@
 
   "permissions": [
     "tabs",
+    "storage",
     "webNavigation",
     "http://*/",
     "https://*/"
@@ -14,15 +15,16 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "css": ["style.css"],
-      "js": ["mindful.js"]
+      "css": ["css/style.css"],
+      "js": ["js/mindful.js"]
     }
   ],
   "web_accessible_resources": [
     "images/*.png",
     "images/*.jpg",
-    "style.css",
-    "mindful.js"
+    "css/style.css",
+    "js/mindful.js",
+    "js/ractive.min.js"
   ],
   "browser_action": {
     "default_icon": "icon.png",

@@ -1,7 +1,8 @@
-- chrome extension?
-- mindful browsing
+    - chrome extension?
+    - mindful browsing
+    - works
+- logo
+- rotate photos daily
+- package
+- send to a couple friends for beta testing
 - check license on photos - can I just pull & put on aws?
-
-
-- switch to node (proper, async proxy?)
-- put on CI/CD
