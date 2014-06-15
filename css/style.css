@@ -13,7 +13,7 @@
 }
 /* Confirm page */
 #mindfulBrowsingConfirm {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -22,6 +22,9 @@
     z-index: 9999999999;
 
     text-align: center;
+}
+#mindfulBrowsingConfirm #container {
+    top: 0;
 }
 #mindfulBrowsingConfirm h1, #mindfulBrowsingConfirm h2, #mindfulBrowsingPopup h1, #mindfulBrowsingPopup h2 {
     color: rgba(255, 255, 255, 0.9);
@@ -55,6 +58,15 @@
 #mindfulBrowsingConfirm a.mindfulBtn:hover, #mindfulBrowsingPopup a.mindfulBtn:hover {
     background-color: rgba(255, 255, 255, 0.3);
     color: rgba(255, 255, 255, 0.8);
+}
+#mindfulBrowsingConfirm #mindfulBrowsingPhotoCredit {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 100;
 }
 
 /* Popup */

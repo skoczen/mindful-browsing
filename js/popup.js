@@ -13,12 +13,14 @@
         { "title": "take a quick walk" },
         { "title": ""}
     ];
+    var timeOuts = {};
+
     var initialized = false;
 
     var saveSettings = function() {
         // Save it using the Chrome extension storage API.
-        console.log("Save")
-        console.log(initialized)
+        // console.log("Save")
+        // console.log(initialized)
         if (initialized === true) {
             var saveWebsites = [];
             for (var w in websites) {
@@ -32,8 +34,8 @@
                     saveThingsToDo.push(thingsToDo[t]);
                 }
             }
-            console.log(saveWebsites)
-            console.log(saveThingsToDo)
+            // console.log(saveWebsites)
+            // console.log(saveThingsToDo)
             chrome.storage.sync.set({
                 "websites": saveWebsites,
                 "thingsToDo": saveThingsToDo
@@ -46,8 +48,13 @@
         // Save it using the Chrome extension storage API.
         chrome.storage.sync.get(null, function(settings) {
           // Notify that we saved.
-          websites = settings.websites;
-          thingsToDo = settings.thingsToDo;
+          if (settings.websites) {
+            websites = settings.websites;  
+          }
+          if (settings.thingsToDo) {
+            thingsToDo = settings.thingsToDo;
+          }
+
           init();
           initialized = true;
         });
@@ -80,7 +87,7 @@
         });
         ractive.on({
             addSite: function() {
-                console.log(websites)
+                // console.log(websites)
                 websites.push(BLANK_WEBSITE);
                 return false;
             },

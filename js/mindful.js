@@ -9,8 +9,6 @@
     chrome.storage.sync.get(null, function(settings) {
       BLACK_LIST = settings.websites;
       WOULD_RATHER = settings.thingsToDo;
-      console.log(BLACK_LIST)
-      console.log(WOULD_RATHER)
       init();
       initialized = true;
 
@@ -40,7 +38,8 @@
             "<div class='options'>",
                 "<a class='mindfulBtn' href='javascript:var ele = document.getElementById(\"mindfulBrowsingConfirm\");ele.parentNode.removeChild(ele);'>Yes, for 5 minutes</a>",
                 "<a class='mindfulBtn' href='javascript:window.close();'>Actually, nah.</a>",
-            "</div>"
+            "</div>",
+            "<a href='http://chrisgin.com' id='mindfulBrowsingPhotoCredit' target='_blank'>Photo by Chris Gin</a>"
             ].join("");
             ele.style.height = height + "px";
             document.body.appendChild(ele);
