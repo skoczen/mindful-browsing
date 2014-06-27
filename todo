@@ -1,9 +1,30 @@
     - chrome extension?
     - mindful browsing
     - works
-- enforce for x minutes
-- logo
-- rotate photos daily
+    - logo
+    - get licensed photos
+    - enforce for x minutes
+    - pop up after x minutes on any existing pages.
+    - mindfulbrowsing.org
+- script to bundle and deploy site (as CD)
+    - structure: (?)
+        - dir/
+            photo-named-whatever.jpeg
+            credit.yml
+                name: Chris Gin
+                credit_url: http://chrisgin.com
+    - create/update photos.json, with photo filename based on photo SHA
+    - name photos locally (by date), move into appropriate place with json
+    - push static to s3
+    - set permissions
+
+- rotate photos daily (photolist.json, on AWS, set cache forever headers on photos)
+- homepage
+    about it
+    safe (we don't keep any data, open-source.)
+
+- point mindfulbrowsing.org to mindfulbrowsing.s3-website-us-east-1.amazonaws.com
+- forward mindfulbrowsing email
 - package
 - send to a couple friends for beta testing
-- check license on photos - can I just pull & put on aws?
+- email Chris Gin info@chrisgin.com when it's live.

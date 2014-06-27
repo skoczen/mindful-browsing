@@ -13,7 +13,7 @@
         { "title": "take a quick walk" },
         { "title": ""}
     ];
-    var timeOuts = {};
+    var timeouts = {};
 
     var initialized = false;
 
@@ -38,7 +38,8 @@
             // console.log(saveThingsToDo)
             chrome.storage.sync.set({
                 "websites": saveWebsites,
-                "thingsToDo": saveThingsToDo
+                "thingsToDo": saveThingsToDo,
+                "timeouts": timeouts
             }, function() {
               // Notify that we saved.
             });
@@ -53,6 +54,9 @@
           }
           if (settings.thingsToDo) {
             thingsToDo = settings.thingsToDo;
+          }
+          if (settings.timeouts) {
+            timeouts = settings.timeouts;
           }
 
           init();
