@@ -1,1 +1,1 @@
-Saving you from yourself. :)
+A chrome extention to beautifully interrupt mindless browsing, and put your time back in your hands.

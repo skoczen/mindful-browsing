@@ -2,14 +2,16 @@
     font-size: 16px;
     font-family: Lato, "Helvetica Neue", sans-serif;
     font-weight: 300;
-
     background-color: #888;
+    z-index: 100;
+
     background: url('chrome-extension://__MSG_@@extension_id__/images/lookout.jpg') no-repeat center center fixed;
 
     -webkit-background-size: cover; /* For WebKit*/
     -moz-background-size: cover;    /* Mozilla*/
     -o-background-size: cover;      /* Opera*/
     background-size: cover;         /* Generic*/
+    z-index: 1;
 }
 /* Confirm page */
 #mindfulBrowsingConfirm {
@@ -71,15 +73,27 @@
 
 /* Popup */
 #mindfulBrowsingPopup {
+    z-index: 100;
     color: rgba(255, 255, 255, 0.9);
     width: 600px;
+    
 }
 #mindfulBrowsingPopup .logo {
     display: block;
     width: 100%;
     padding: 0;
     font-weight: 100;
-    color: rgba(255, 255, 255, 0.2);
+    color: #FFF;
+    opacity: 1;
+}
+#mindfulBrowsingPopup .logo a {
+    outline: none;
+    color: #FFF;
+    text-decoration: none;
+}
+#mindfulBrowsingPopup .logo img {
+    vertical-align: middle;
+    padding-bottom: 4px;
 }
 #mindfulBrowsingPopup h2 {
     margin: 20px 0 0 0;
