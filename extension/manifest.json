@@ -19,7 +19,8 @@
         "css/style.css"
       ],
       "js": [
-        "js/mindful.js"
+        "js/mindful.js",
+        "js/photoInfo.js"
       ]
     }
   ],

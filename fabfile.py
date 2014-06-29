@@ -15,6 +15,7 @@ PHOTO_DATA_FILENAME = "photos.json"
 TIME_BETWEEN_IMAGES = datetime.timedelta(days=2)
 BASE_URL = "http://mindfulbrowsing.org/photos/"
 SCP_TARGET = os.environ["SCP_TARGET"]
+PHOTO_DATA_JS_PATH = os.path.abspath(os.path.join(os.getcwd(), "extension", "js", "photoInfo.js"))
 
 def _ensure_build_directory():
     try:
@@ -99,8 +100,16 @@ def bundle_images():
     photos_info["last_update"] = _datetime_to_ms_since_epoch(datetime.datetime.now())
 
     with open(photo_data_file, "w+") as f:
-        # json.dump(photos_info, f, sort_keys=True, indent=4, separators=(',', ': '))
-        json.dump(photos_info, f)
+        json.dump(photos_info, f, sort_keys=True, indent=4, separators=(',', ': '))
+        # json.dump(photos_info, f)
+
+    with open(PHOTO_DATA_JS_PATH, "w") as f:
+        f.write("""(function() {
+    var photoInfo = %s;
+    window.mindfulBrowsing = window.mindfulBrowsing || {};
+    window.mindfulBrowsing.photoInfo = photoInfo;
+})();
+""" % json.dumps(photos_info))
 
     print "Photos built."
 

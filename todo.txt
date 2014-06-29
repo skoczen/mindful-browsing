@@ -21,7 +21,8 @@
         - decide http://mindfulbrowsing.org/ or http://stevenskoczen.com/mindfulbrowsing
         - point mindfulbrowsing.org to mindfulbrowsing.s3-website-us-east-1.amazonaws.com
         - forward mindfulbrowsing email
-- rotate photos daily (photolist.json, on AWS, set cache forever headers on photos)
+        - rotate photos daily (photolist.json, on AWS, set cache forever headers on photos)
+
 - homepage
     built by steven skoczen
     about it

@@ -8,14 +8,34 @@
     var rather = null;
     var was_in_timeout = false;
     var timeouts;
+    var currentPhoto;
+
+    // Storage:
+    // {
+    //     "websites": ["foo.com", "bar.com"],
+    //     "thingsToDo": ["go for a walk", "etc"],
+    //     "timeouts": {
+    //         "foo.com": 1234532341231  // ms since epoch when timeout expires
+    //     },
+    //     "currentPhoto": {
+    //         "next_update": 12312431242,
+    //         "credit": "Chris Gin",
+    //         "credit_url": "http://chrisgin.com",
+    //         "start_date": 1404448425891,
+    //         "start_date_human": "June 26 2014",
+    //         "url": "https://mindfulbrowsing.org/photos/2.jpg"
+    //     }
+    // }
+
     chrome.storage.sync.get(null, function(settings) {
       websites = settings.websites || {};
       thingsToDo = settings.thingsToDo || {};
       timeouts = settings.timeouts || {};
-      init();
+      currentPhoto = settings.currentPhoto || {};
       initialized = true;
+      init();
     });
-    var mindfulBrowsing = mindfulBrowsing || {};
+    var mindfulBrowsing = window.mindfulBrowsing || {};
     mindfulBrowsing.confirmClicked = function() {
         var ele = document.getElementById("mindfulBrowsingConfirm");
         ele.parentNode.removeChild(ele);
@@ -46,7 +66,8 @@
             chrome.storage.sync.set({
                 "websites": saveWebsites,
                 "thingsToDo": saveThingsToDo,
-                "timeouts": timeouts
+                "timeouts": timeouts,
+                "currentPhoto": currentPhoto,
             }, function() {
               // Notify that we saved.
             });
@@ -59,7 +80,7 @@
 
         var height = Math.max( body.scrollHeight, body.offsetHeight,
             html.clientHeight, html.scrollHeight, html.offsetHeight );
-        var go_verb = (was_in_timeout)? "stay on" : "go to";
+        var go_verb = (was_in_timeout)? "stay on" : "spend time on";
 
         var ele = document.createElement("div");
         ele.id="mindfulBrowsingConfirm";
@@ -69,19 +90,34 @@
             "<h2>You said you'd usually rather "+rather+". :)</h2>",
         "</div>",
         "<div class='options'>",
-            "<a class='mindfulBtn' id='mindfulBrowsingContinue' href='#'>Yes, for 10 minutes</a>",
+            "<a class='mindfulBtn' id='mindfulBrowsingContinue' href='#'>Yes, for 10 minutes.</a>",
             "<a class='mindfulBtn' id='mindfulBrowsingLeave' href='javascript:window.close()'>Actually, nah.</a>",
         "</div>",
-        "<a href='http://chrisgin.com' id='mindfulBrowsingPhotoCredit' target='_blank'>Photo by Chris Gin</a>"
+        "<a href='" + currentPhoto["credit_url"] + "' id='mindfulBrowsingPhotoCredit' target='_blank'>Photo by " + currentPhoto["credit"] + "</a>"
         ].join("");
         ele.style.height = height + "px";
+        ele.style.background = "url('" + currentPhoto["url"] + "') no-repeat center center fixed";
+        ele.style.backgroundSize = "cover";
         document.body.appendChild(ele);
         
         btn = document.getElementById("mindfulBrowsingContinue");
         btn.onclick = mindfulBrowsing.confirmClicked;
     };
+    window.mindfulBrowsing = mindfulBrowsing;
     function init() {
         var now = new Date();
+        if (currentPhoto["next_update"] == undefined || currentPhoto["next_update"] < now.getTime()) {
+            var photo_index = 0;
+            for (photo_index=0; photo_index<window.mindfulBrowsing.photoInfo.photos.length; photo_index++) {
+                if (window.mindfulBrowsing.photoInfo.photos[photo_index]["start_date"] > now.getTime()) {
+                    break;
+                }
+            }
+            photo_index = (photo_index > 0) ? photo_index: 1;
+            currentPhoto = window.mindfulBrowsing.photoInfo.photos[photo_index-1];
+            currentPhoto["next_update"] = now.getTime() + (1000*60*60*24);
+            mindfulBrowsing.saveSettings();
+        }
         for (var i in websites) {
             if (href.indexOf(websites[i].url) != -1) {
                 site_name = websites[i].url;

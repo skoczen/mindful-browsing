@@ -14,13 +14,12 @@
         { "title": ""}
     ];
     var timeouts = {};
+    var currentPhoto;
 
     var initialized = false;
 
     var saveSettings = function() {
         // Save it using the Chrome extension storage API.
-        // console.log("Save")
-        // console.log(initialized)
         if (initialized === true) {
             var saveWebsites = [];
             for (var w in websites) {
@@ -34,12 +33,11 @@
                     saveThingsToDo.push(thingsToDo[t]);
                 }
             }
-            // console.log(saveWebsites)
-            // console.log(saveThingsToDo)
             chrome.storage.sync.set({
                 "websites": saveWebsites,
                 "thingsToDo": saveThingsToDo,
-                "timeouts": timeouts
+                "timeouts": timeouts,
+                "currentPhoto": currentPhoto
             }, function() {
               // Notify that we saved.
             });
@@ -58,6 +56,7 @@
           if (settings.timeouts) {
             timeouts = settings.timeouts;
           }
+          currentPhoto = settings.currentPhoto;
 
           init();
           initialized = true;
@@ -75,12 +74,12 @@
             '      {{/websites}}'+
             '      <div class="response"><label></label><a on-click="addSite" class="mindfulBtn">Add another</a></div>'+
             '  </div>'+
-            '  <h2>Instead, I\'d usually prefer to:</h2>'+
-            '  <div class="responses">'+
+            '  <h2>Usually, I\'d rather:</h2>'+
+            '  <div class="responses thingsToDo">'+
             '      {{#thingsToDo:num}}'+
-            '      <div class="response"><label>http://</label><input type="text" placeholder="something small and specific" value="{{title}}" /><a class="removeX" on-click="removeThing">X</a></div>'+
+            '      <div class="response"><input type="text" placeholder="something small and specific" value="{{title}}" /><a class="removeX" on-click="removeThing">X</a></div>'+
             '      {{/thingsToDo}}'+
-            '      <div class="response"><label></label><a on-click="addThing" class="mindfulBtn">Add another</a></div>'+
+            '      <div class="response"><a on-click="addThing" class="mindfulBtn">Add another</a></div>'+
             '  </div>'+
             '',
             data: {
@@ -91,7 +90,6 @@
         });
         ractive.on({
             addSite: function() {
-                // console.log(websites)
                 websites.push(BLANK_WEBSITE);
                 return false;
             },

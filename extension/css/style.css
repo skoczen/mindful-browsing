@@ -44,7 +44,7 @@
     /*background: rgba(255, 255, 255, 0.1);*/
     padding: 50px 0;
     font-size: 20px;
-    margin: 80px auto;
+    margin: 60px auto 120px 0;
 }
 #mindfulBrowsingConfirm a.mindfulBtn, #mindfulBrowsingPopup, a.mindfulBtn {
     display: inline-block;
@@ -53,13 +53,13 @@
     border-radius: 10px;
     text-decoration: none;
     background-color: #CCC;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255,255,255,0.5);
+    color: rgba(0,0,0,0.4);
     transition: background 0.4s ease, color 0.4s ease;
 }
 #mindfulBrowsingConfirm a.mindfulBtn:hover, #mindfulBrowsingPopup a.mindfulBtn:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-    color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.8);
+    color: rgba(0,0,0,0.6);
 }
 #mindfulBrowsingConfirm #mindfulBrowsingPhotoCredit {
     position: fixed;
@@ -106,8 +106,13 @@
 #mindfulBrowsingPopup, a.mindfulBtn {
     /*padding: 0;*/
     margin: 5px 0;
+    background-color: rgba(255, 255, 255, 0.2);
     color: rgba(255, 255, 255, 0.6);
     cursor: pointer;
+}
+#mindfulBrowsingPopup a.mindfulBtn:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+    color: rgba(255, 255, 255, 0.9);
 }
 #mindfulBrowsingPopup a.removeX {
     text-decoration: none;
@@ -119,6 +124,9 @@
     cursor: pointer;
 }
 #mindfulBrowsingPopup .responses {
+    padding: 10px 0 0 0;
+}
+#mindfulBrowsingPopup .responses.thingsToDo {
     padding-left: 20px;
 }
 #mindfulBrowsingPopup input {
@@ -134,13 +142,16 @@
     width: 400px;
     border: 0px;
 }
+#mindfulBrowsingPopup .responses.thingsToDo input { 
+    width: 445px;
+}
 #mindfulBrowsingPopup input::-webkit-input-placeholder{ 
     color: rgba(255, 255, 255, 0.6);
 }
 #mindfulBrowsingPopup label {
     font-weight: 100;
     display: inline-block;
-    width: 80px;
+    width: 60px;
     text-align: right;
     padding-right: 6px;
     color: rgba(255, 255, 255, 0.9);
