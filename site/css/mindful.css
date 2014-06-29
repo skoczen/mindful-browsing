@@ -70,3 +70,10 @@ h1 {
 .button:hover {
     background-color: #6cbbe7;
 }
+.gallery img {
+    display: inline-block;
+    margin: 0 10px;
+}
+.footer {
+    opacity: 0.7;
+}
