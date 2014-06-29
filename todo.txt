@@ -33,15 +33,19 @@
     - get the rest of chris's photos
 
     - package
-- test
-- update links on index page
-- submit live
+    - test
+    - update links on index page
+    - submit live
+- change to do you want
+- update screenshots
 
 - send to a couple friends for beta testing
-    - bug
+        - bug
     - levi
     - jerica
-    - john
+        - john
+        - r
+
 
 
 Post:  

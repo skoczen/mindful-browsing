@@ -86,7 +86,7 @@
         ele.id="mindfulBrowsingConfirm";
         ele.innerHTML = [
         "<div class='mindfulBrowsingHeading'>",
-            "<h1>Are you sure you want to " + go_verb + " " +site_name+"?</h1>",
+            "<h1>Do you want to " + go_verb + " " +site_name+"?</h1>",
             "<h2>You said you'd usually rather "+rather+". :)</h2>",
         "</div>",
         "<div class='options'>",
