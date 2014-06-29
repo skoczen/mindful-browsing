@@ -14,33 +14,37 @@
                 credit.yml
                     name: Chris Gin
                     credit_url: http://chrisgin.com
-        - create/update photos.json, with photo filename based on photo SHA
-        - name photos locally (by date), move into appropriate place with json
-        - push static to s3
-        - set permissions
-        - decide http://mindfulbrowsing.org/ or http://stevenskoczen.com/mindfulbrowsing
-        - point mindfulbrowsing.org to mindfulbrowsing.s3-website-us-east-1.amazonaws.com
-        - forward mindfulbrowsing email
-        - rotate photos daily (photolist.json, on AWS, set cache forever headers on photos)
+    - create/update photos.json, with photo filename based on photo SHA
+    - name photos locally (by date), move into appropriate place with json
+    - push static to s3
+    - set permissions
+    - decide http://mindfulbrowsing.org/ or http://stevenskoczen.com/mindfulbrowsing
+    - point mindfulbrowsing.org to mindfulbrowsing.s3-website-us-east-1.amazonaws.com
+    - forward mindfulbrowsing email
+    - rotate photos daily (photolist.json, on AWS, set cache forever headers on photos)
 
-        - homepage
-            built by steven skoczen
-            about it
-            totally in your control
+    - homepage
+        built by steven skoczen
+        about it
+        totally in your control
 
-            safe (we don't keep any data, open-source.)
+        safe (we don't keep any data, open-source.)
 
-- get the rest of chris's photos
-
-Post:  
-Do you ever find yourself losing hours on facebook, twitter, or __insert_site_here__, despite your best intentions?  I made this to help.
+    - get the rest of chris's photos
 
 - package
+- submit
+- update links on index page
+
 - send to a couple friends for beta testing
     - bug
     - levi
     - jerica
     - john
+
+
+Post:  
+Do you ever find yourself losing hours on facebook, twitter, or __insert_site_here__, despite your best intentions?  I made this to help.
 
 - email Chris Gin info@chrisgin.com when it's live.
 - research some blogs, (merlin mann, etc to get the word out)

@@ -81,3 +81,30 @@ h1 {
     display: block;
     margin-top: 50px;
 }
+@media (max-width: 1024px) {
+    .content {
+        width: auto;
+        margin-bottom: 100px;
+    }
+}
+@media (max-width: 640px) {
+    .content p {
+        font-size: 16px;
+    }
+    .content .hero {
+        width: 70%;
+        zoom: 70;
+        box-shadow: none;
+
+    }
+    .nav {
+        font-size: 18px;
+    }
+    .download {
+        font-size: 18px;
+    }
+    h1 {
+        font-size: 24px;
+        margin: 80px 0 20px 0;
+    }
+}
