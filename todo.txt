@@ -36,7 +36,8 @@
     - test
     - update links on index page
     - submit live
-- change to do you want
+    - change to do you want
+- verify 1.0.1 out
 - update screenshots
 
 - send to a couple friends for beta testing
@@ -49,7 +50,7 @@
 
 
 Post:  
-Do you ever find yourself losing hours on facebook, twitter, or __insert_site_here__, despite your best intentions?  I made this to help.
+Do you ever find yourself losing hours on facebook, twitter, or __insert_site_here__, despite your best intentions?  I made this to help. http://www.mindfulbrowsing.org/
 
 - email Chris Gin info@chrisgin.com when it's live.
 - research some blogs, (merlin mann, mbg gal, etc to get the word out)
