@@ -106,7 +106,7 @@
     window.mindfulBrowsing = mindfulBrowsing;
     function init() {
         var now = new Date();
-        if (currentPhoto["next_update"] == undefined || currentPhoto["next_update"] < now.getTime()) {
+        if (currentPhoto["next_update"] === undefined || currentPhoto["next_update"] < now.getTime()) {
             var photo_index = 0;
             for (photo_index=0; photo_index<window.mindfulBrowsing.photoInfo.photos.length; photo_index++) {
                 if (window.mindfulBrowsing.photoInfo.photos[photo_index]["start_date"] > now.getTime()) {

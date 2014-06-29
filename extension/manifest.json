@@ -1,6 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Mindful Browsing",
+  "short_name": "Beautifully interrupts mindless browsing, and gets you back to your life.",
   "description": "Beautifully interrupts mindless browsing, and gets you back to your life.",
   "version": "1.0.0",
   "permissions": [

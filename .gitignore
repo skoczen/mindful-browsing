@@ -9,3 +9,4 @@ celerybeat-schedule
 venv/*
 source/*
 build/*
+mindfulbrowsing.zip

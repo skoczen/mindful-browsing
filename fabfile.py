@@ -118,10 +118,14 @@ def build_site():
     distutils.dir_util.copy_tree(SITE_SOURCE_DIR, SITE_BUILD_DIR)
     print "Done."
 
+def bundle_app():
+    local("zip -r mindfulbrowsing.zip extension -x '*.DS_Store'")
+
 def deploy_site():
     local("rsync -avz -e ssh --progress %s/ %s" % (SITE_BUILD_DIR, SCP_TARGET,))
 
 def deploy():
     bundle_images()
+    bundle_app()
     build_site()
     deploy_site()
