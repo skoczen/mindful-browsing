@@ -23,11 +23,17 @@
         - forward mindfulbrowsing email
         - rotate photos daily (photolist.json, on AWS, set cache forever headers on photos)
 
-- homepage
-    built by steven skoczen
-    about it
-    safe (we don't keep any data, open-source.)
+        - homepage
+            built by steven skoczen
+            about it
+            totally in your control
+
+            safe (we don't keep any data, open-source.)
+
 - get the rest of chris's photos
+
+Post:  
+Do you ever find yourself losing hours on facebook, twitter, or __insert_site_here__, despite your best intentions?  I made this to help.
 
 - package
 - send to a couple friends for beta testing
@@ -37,3 +43,4 @@
     - john
 
 - email Chris Gin info@chrisgin.com when it's live.
+- research some blogs, (merlin mann, etc to get the word out)

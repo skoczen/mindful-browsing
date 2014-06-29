@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "Mindful Browsing",
   "description": "Beautifully interrupts mindless browsing, and gets you back to your life.",
-  "version": "0.8",
+  "version": "1.0.0",
   "permissions": [
     "tabs",
     "storage",
