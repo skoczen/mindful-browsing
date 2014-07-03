@@ -6,7 +6,9 @@
     background-color: #888;
     z-index: 100;
 
-    
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 
     -webkit-background-size: cover; /* For WebKit*/
     -moz-background-size: cover;    /* Mozilla*/
@@ -167,9 +169,9 @@
     width: 400px;
     border: 0px;
 }
-#mindfulBrowsingPopup .response:hover input {
-    background: rgba(255,255,255, 0.6);
-    color: rgba(0, 160, 200, 1);
+#mindfulBrowsingPopup .response:hover input, #mindfulBrowsingPopup input:focus {
+    background: rgba(255,255,255, 0.4);
+    /*color: rgba(0, 160, 200, 1);*/
     font-weight: 300;
 }
 #mindfulBrowsingPopup .responses.thingsToDo input { 

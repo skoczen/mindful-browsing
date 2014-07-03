@@ -1,62 +1,9 @@
-    - chrome extension?
-    - mindful browsing
-    - works
-    - logo
-    - get licensed photos
-    - enforce for x minutes
-    - pop up after x minutes on any existing pages.
-    - mindfulbrowsing.org
-    - script to bundle and deploy site (as CD?)
-        - structure: (?)
-            - dir/
-                photo-named-whatever.jpeg
-                photo-named-whatever2.jpeg
-                credit.yml
-                    name: Chris Gin
-                    credit_url: http://chrisgin.com
-    - create/update photos.json, with photo filename based on photo SHA
-    - name photos locally (by date), move into appropriate place with json
-    - push static to s3
-    - set permissions
-    - decide http://mindfulbrowsing.org/ or http://stevenskoczen.com/mindfulbrowsing
-    - point mindfulbrowsing.org to mindfulbrowsing.s3-website-us-east-1.amazonaws.com
-    - forward mindfulbrowsing email
-    - rotate photos daily (photolist.json, on AWS, set cache forever headers on photos)
-
-    - homepage
-        built by steven skoczen
-        about it
-        totally in your control
-
-        safe (we don't keep any data, open-source.)
-
-    - get the rest of chris's photos
-
-    - package
-    - test
-    - update links on index page
-    - submit live
-    - change to do you want
-    - verify 1.0.1 out
-
-- 1.1
-        - close button fix: 
-            window.open('', '_self', '');
-            window.close();
-            or
-            open(location, '_self').close();
-            http://stackoverflow.com/questions/19761241/window-close-and-self-close-do-not-close-the-window-in-chrome
-
-        - fix bug with no entries in list
-        - fix bug on example.com
-        - no background for john.  Just pull line 110?
-        - verify fixed w/ john
-- 1.1 out
-- email chris gin
-- update screenshots
-- email Chris Gin info@chrisgin.com when it's live.
 - research some blogs, (merlin mann, mbg gal, etc to get the word out)
     https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=mindful%20browsing
+
+- 1.2:
+    - Add "mindfulness" to description text.
+    - update screenshots if sticking with new text
 
 
 

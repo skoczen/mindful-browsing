@@ -99,6 +99,8 @@
         ele.style.backgroundColor = "rgba(97, 144, 187, 0.92)";
         // ele.style.background = "url('" + currentPhoto["url"] + "') no-repeat center center fixed";
         ele.style.backgroundSize = "cover";
+        ele.style.backgroundPosition = "center center";
+        ele.style.backgroundRepeat = "no-repeat";
         document.body.appendChild(ele);
         
         btn = document.getElementById("mindfulBrowsingContinue");
