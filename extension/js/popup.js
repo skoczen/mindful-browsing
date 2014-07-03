@@ -70,14 +70,14 @@
             '<h2>I want to be mindful of spending my time on:</h2>'+
             '  <div class="responses">'+
             '      {{#websites:num}}'+
-            '      <div class="response"><label>http://</label><input type="text" value="{{url}}" /><a class="removeX" on-click="removeSite">X</a></div>'+
+            '      <div class="response"><label>http://</label><input type="text" value="{{url}}" /><a class="removeX" on-click="removeSite">&#x2716;</a></div>'+
             '      {{/websites}}'+
             '      <div class="response"><label></label><a on-click="addSite" class="mindfulBtn">Add another</a></div>'+
             '  </div>'+
             '  <h2>Usually, I\'d rather:</h2>'+
             '  <div class="responses thingsToDo">'+
             '      {{#thingsToDo:num}}'+
-            '      <div class="response"><input type="text" placeholder="something small and specific" value="{{title}}" /><a class="removeX" on-click="removeThing">X</a></div>'+
+            '      <div class="response"><input type="text" placeholder="something small and specific" value="{{title}}" /><a class="removeX" on-click="removeThing">&#x2716;</a></div>'+
             '      {{/thingsToDo}}'+
             '      <div class="response"><a on-click="addThing" class="mindfulBtn">Add another</a></div>'+
             '  </div>'+

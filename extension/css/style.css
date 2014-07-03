@@ -81,10 +81,10 @@
     position: fixed;
     bottom: 10px;
     left: 10px;
-    color: rgba(255,255,255,0.7);
     text-decoration: none;
     font-size: 14px;
-    font-weight: 100;
+    font-weight: 300;
+    color: rgba(255,255,255,0.7);
 }
 
 /* Popup */
@@ -138,11 +138,16 @@
     text-decoration: none;
     font-size: 20px;
     text-transform: lowercase;
-    font-weight: 300;
+    font-weight: 100;
     color: rgba(255, 255, 255, 0.4);
     margin-left: 6px;
     cursor: pointer;
 }
+#mindfulBrowsingPopup .response:hover a.removeX {
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.5)
+}
+
 #mindfulBrowsingPopup .responses {
     padding: 10px 0 0 0;
 }
@@ -161,6 +166,11 @@
     font-weight: 100;
     width: 400px;
     border: 0px;
+}
+#mindfulBrowsingPopup .response:hover input {
+    background: rgba(255,255,255, 0.6);
+    color: rgba(0, 160, 200, 1);
+    font-weight: 300;
 }
 #mindfulBrowsingPopup .responses.thingsToDo input { 
     width: 445px;

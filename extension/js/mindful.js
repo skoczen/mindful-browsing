@@ -90,10 +90,10 @@
             "<h2>You said you'd usually rather "+rather+". :)</h2>",
         "</div>",
         "<div class='options'>",
-            "<a class='mindfulBtn' id='mindfulBrowsingContinue' href='#'>Yes, for 10 minutes.</a>",
-            "<a class='mindfulBtn' id='mindfulBrowsingLeave' href='javascript:window.open(location, '_self');window.close();'>Actually, nah.</a>",
+            "<a class='mindfulBtn' id='mindfulBrowsingContinue' href='#'>Yes, 10 minutes.</a>",
+            "<a class='mindfulBtn' id='mindfulBrowsingLeave' href='javascript:window.open(location,\"_self\");window.close();'>Actually, nah.</a>",
         "</div>",
-        "<a href='" + currentPhoto["credit_url"] + "' id='mindfulBrowsingPhotoCredit' target='_blank'>Photo by " + currentPhoto["credit"] + "</a>"
+        "<a href='" + currentPhoto["credit_url"] + "' id='mindfulBrowsingPhotoCredit'>Photo by " + currentPhoto["credit"] + "</a>"
         ].join("");
         ele.style.height = height + "px";
         ele.style.backgroundColor = "rgba(97, 144, 187, 0.92)";
