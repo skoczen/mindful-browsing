@@ -97,7 +97,7 @@
         ].join("");
         ele.style.height = height + "px";
         ele.style.backgroundColor = "rgba(97, 144, 187, 0.92)";
-        // ele.style.background = "url('" + currentPhoto["url"] + "') no-repeat center center fixed";
+        ele.style.backgroundImage = "url('" + currentPhoto["url"] + "')";
         ele.style.backgroundSize = "cover";
         ele.style.backgroundPosition = "center center";
         ele.style.backgroundRepeat = "no-repeat";

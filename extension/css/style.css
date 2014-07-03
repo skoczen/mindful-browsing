@@ -171,7 +171,6 @@
 }
 #mindfulBrowsingPopup .response:hover input, #mindfulBrowsingPopup input:focus {
     background: rgba(255,255,255, 0.4);
-    /*color: rgba(0, 160, 200, 1);*/
     font-weight: 300;
 }
 #mindfulBrowsingPopup .responses.thingsToDo input { 
