@@ -23,13 +23,13 @@
         if (initialized === true) {
             var saveWebsites = [];
             for (var w in websites) {
-                if (websites[w].url != "") {
+                if (websites[w].url !== "") {
                     saveWebsites.push(websites[w]);
                 }
             }
             var saveThingsToDo = [];
             for (var t in thingsToDo) {
-                if (thingsToDo[t].url != "") {
+                if (thingsToDo[t].title !== "") {
                     saveThingsToDo.push(thingsToDo[t]);
                 }
             }

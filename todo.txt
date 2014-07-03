@@ -37,23 +37,32 @@
     - update links on index page
     - submit live
     - change to do you want
-- verify 1.0.1 out
+    - verify 1.0.1 out
+
+- 1.1
+        - close button fix: 
+            window.open('', '_self', '');
+            window.close();
+            or
+            open(location, '_self').close();
+            http://stackoverflow.com/questions/19761241/window-close-and-self-close-do-not-close-the-window-in-chrome
+
+        - fix bug with no entries in list
+        - fix bug on example.com
+        - no background for john.  Just pull line 110?
+        - verify fixed w/ john
+- 1.1 out
+- email chris gin
 - update screenshots
-
-- send to a couple friends for beta testing
-        - bug
-    - levi
-    - jerica
-        - john
-        - r
+- email Chris Gin info@chrisgin.com when it's live.
+- research some blogs, (merlin mann, mbg gal, etc to get the word out)
+    https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=mindful%20browsing
 
 
+
+
+- Feedback
+    - save button?
 
 Post:  
 Do you ever find yourself losing hours on facebook, twitter, or __insert_site_here__, despite your best intentions?  I made this to help. http://www.mindfulbrowsing.org/
-
-- email Chris Gin info@chrisgin.com when it's live.
-- research some blogs, (merlin mann, mbg gal, etc to get the word out)
-
-- consider rephrasing to "Do you want to spend time on ____?"
-    - better, would mean redoing all the screenshots. :/

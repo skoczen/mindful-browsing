@@ -1,11 +1,12 @@
 #mindfulBrowsingConfirm, #mindfulBrowsingPopup {
+    display: block;
     font-size: 16px;
     font-family: Lato, "Helvetica Neue", sans-serif;
     font-weight: 300;
     background-color: #888;
     z-index: 100;
 
-    background: url('chrome-extension://__MSG_@@extension_id__/images/lookout.jpg') no-repeat center center fixed;
+    
 
     -webkit-background-size: cover; /* For WebKit*/
     -moz-background-size: cover;    /* Mozilla*/
@@ -21,9 +22,24 @@
     right: 0;
     bottom: 0;
     width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0;
     z-index: 9999999999;
+    background-color: rgba(97, 144, 187, 0.92);
 
     text-align: center;
+}
+#mindfulBrowsingConfirm div {
+    display: block;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    border-radius: 0;
+
 }
 #mindfulBrowsingConfirm #container {
     top: 0;
@@ -76,7 +92,11 @@
     z-index: 100;
     color: rgba(255, 255, 255, 0.9);
     width: 600px;
-    
+    background: url('chrome-extension://__MSG_@@extension_id__/images/lookout.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover; /* For WebKit*/
+    -moz-background-size: cover;    /* Mozilla*/
+    -o-background-size: cover;      /* Opera*/
+    background-size: cover;         /* Generic*/
 }
 #mindfulBrowsingPopup .logo {
     display: block;

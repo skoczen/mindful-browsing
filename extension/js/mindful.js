@@ -59,7 +59,7 @@
             }
             var saveThingsToDo = [];
             for (var t in thingsToDo) {
-                if (thingsToDo[t].url != "") {
+                if (thingsToDo[t].title != "") {
                     saveThingsToDo.push(thingsToDo[t]);
                 }
             }
@@ -91,12 +91,13 @@
         "</div>",
         "<div class='options'>",
             "<a class='mindfulBtn' id='mindfulBrowsingContinue' href='#'>Yes, for 10 minutes.</a>",
-            "<a class='mindfulBtn' id='mindfulBrowsingLeave' href='javascript:window.close()'>Actually, nah.</a>",
+            "<a class='mindfulBtn' id='mindfulBrowsingLeave' href='javascript:window.open(location, '_self');window.close();'>Actually, nah.</a>",
         "</div>",
         "<a href='" + currentPhoto["credit_url"] + "' id='mindfulBrowsingPhotoCredit' target='_blank'>Photo by " + currentPhoto["credit"] + "</a>"
         ].join("");
         ele.style.height = height + "px";
-        ele.style.background = "url('" + currentPhoto["url"] + "') no-repeat center center fixed";
+        ele.style.backgroundColor = "rgba(97, 144, 187, 0.92)";
+        // ele.style.background = "url('" + currentPhoto["url"] + "') no-repeat center center fixed";
         ele.style.backgroundSize = "cover";
         document.body.appendChild(ele);
         
@@ -115,7 +116,7 @@
             }
             photo_index = (photo_index > 0) ? photo_index: 1;
             currentPhoto = window.mindfulBrowsing.photoInfo.photos[photo_index-1];
-            currentPhoto["next_update"] = now.getTime() + (1000*60*60*24);
+            currentPhoto["next_update"] = now.getTime() + (1000*60*60*2);
             mindfulBrowsing.saveSettings();
         }
         for (var i in websites) {
