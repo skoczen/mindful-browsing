@@ -1,3 +1,48 @@
+#mindfulBrowsingConfirm html, #mindfulBrowsingConfirm body, #mindfulBrowsingConfirm div, #mindfulBrowsingConfirm span, #mindfulBrowsingConfirm applet, #mindfulBrowsingConfirm object, #mindfulBrowsingConfirm iframe,
+#mindfulBrowsingConfirm h1, #mindfulBrowsingConfirm h2, #mindfulBrowsingConfirm h3, #mindfulBrowsingConfirm h4, #mindfulBrowsingConfirm h5, #mindfulBrowsingConfirm h6, #mindfulBrowsingConfirm p, #mindfulBrowsingConfirm blockquote, #mindfulBrowsingConfirm pre,
+#mindfulBrowsingConfirm a, #mindfulBrowsingConfirm abbr, #mindfulBrowsingConfirm acronym, #mindfulBrowsingConfirm address, #mindfulBrowsingConfirm big, #mindfulBrowsingConfirm cite, #mindfulBrowsingConfirm code,
+#mindfulBrowsingConfirm del, #mindfulBrowsingConfirm dfn, #mindfulBrowsingConfirm em, #mindfulBrowsingConfirm img, #mindfulBrowsingConfirm ins, #mindfulBrowsingConfirm kbd, #mindfulBrowsingConfirm q, #mindfulBrowsingConfirm s, #mindfulBrowsingConfirm samp,
+#mindfulBrowsingConfirm small, #mindfulBrowsingConfirm strike, #mindfulBrowsingConfirm strong, #mindfulBrowsingConfirm sub, #mindfulBrowsingConfirm sup, #mindfulBrowsingConfirm tt, #mindfulBrowsingConfirm var,
+#mindfulBrowsingConfirm b, #mindfulBrowsingConfirm u, #mindfulBrowsingConfirm i, #mindfulBrowsingConfirm center,
+#mindfulBrowsingConfirm dl, #mindfulBrowsingConfirm dt, #mindfulBrowsingConfirm dd, #mindfulBrowsingConfirm ol, #mindfulBrowsingConfirm ul, #mindfulBrowsingConfirm li,
+#mindfulBrowsingConfirm fieldset, #mindfulBrowsingConfirm form, #mindfulBrowsingConfirm label, #mindfulBrowsingConfirm legend,
+#mindfulBrowsingConfirm table, #mindfulBrowsingConfirm caption, #mindfulBrowsingConfirm tbody, #mindfulBrowsingConfirm tfoot, #mindfulBrowsingConfirm thead, #mindfulBrowsingConfirm tr, #mindfulBrowsingConfirm th, #mindfulBrowsingConfirm td,
+#mindfulBrowsingConfirm article, #mindfulBrowsingConfirm aside, #mindfulBrowsingConfirm canvas, #mindfulBrowsingConfirm details, #mindfulBrowsingConfirm embed, #mindfulBrowsingConfirm 
+#mindfulBrowsingConfirm figure, #mindfulBrowsingConfirm figcaption, #mindfulBrowsingConfirm footer, #mindfulBrowsingConfirm header, #mindfulBrowsingConfirm hgroup, #mindfulBrowsingConfirm 
+#mindfulBrowsingConfirm menu, #mindfulBrowsingConfirm nav, #mindfulBrowsingConfirm output, #mindfulBrowsingConfirm ruby, #mindfulBrowsingConfirm section, #mindfulBrowsingConfirm summary,
+#mindfulBrowsingConfirm time, #mindfulBrowsingConfirm mark, #mindfulBrowsingConfirm audio, #mindfulBrowsingConfirm video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    text-rendering: optimizeLegibility;
+}
+/* HTML5 display-role reset for older browsers */
+#mindfulBrowsingConfirm article, #mindfulBrowsingConfirm aside, #mindfulBrowsingConfirm details, #mindfulBrowsingConfirm figcaption, #mindfulBrowsingConfirm figure, #mindfulBrowsingConfirm 
+footer, #mindfulBrowsingConfirm header, #mindfulBrowsingConfirm hgroup, #mindfulBrowsingConfirm menu, #mindfulBrowsingConfirm nav, #mindfulBrowsingConfirm section {
+    display: block;
+}
+#mindfulBrowsingConfirm {
+    line-height: 1;
+}
+#mindfulBrowsingConfirm ol, #mindfulBrowsingConfirm ul {
+    list-style: none;
+}
+#mindfulBrowsingConfirm blockquote, #mindfulBrowsingConfirm q {
+    quotes: none;
+}
+#mindfulBrowsingConfirm blockquote:before, #mindfulBrowsingConfirm blockquote:after,
+q:before, #mindfulBrowsingConfirm q:after {
+    content: '';
+    content: none;
+}
+#mindfulBrowsingConfirm table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
 #mindfulBrowsingConfirm, #mindfulBrowsingPopup {
     display: block;
     font-size: 16px;
@@ -16,6 +61,7 @@
     background-size: cover;         /* Generic*/
     z-index: 1;
 }
+
 /* Confirm page */
 #mindfulBrowsingConfirm {
     position: fixed;
@@ -51,6 +97,10 @@
     font-weight: 100;
     font-size: 40px;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+    -webkit-margin-before: 0.67em;
+    -webkit-margin-after: 0.67em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
 }
 #mindfulBrowsingConfirm h1 {
     margin-bottom: 40px;

@@ -95,7 +95,7 @@
         "</div>",
         "<a href='" + currentPhoto["credit_url"] + "' id='mindfulBrowsingPhotoCredit'>Photo by " + currentPhoto["credit"] + "</a>"
         ].join("");
-        ele.style.height = height + "px";
+        ele.style.height = "100%";
         ele.style.backgroundColor = "rgba(97, 144, 187, 0.92)";
         ele.style.backgroundImage = "url('" + currentPhoto["url"] + "')";
         ele.style.backgroundSize = "cover";
