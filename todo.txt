@@ -4,12 +4,14 @@
 - 1.2:
     - Add "mindfulness" to description text.
     - update screenshots if sticking with new text
-
+    - device-sized screenshots (x1280, x1600, 2000, full)
 
 
 
 - Feedback
     - save button?
+    - popup text hard to read. just go plain white?
+
 
 Post:  
 Do you ever find yourself losing hours on facebook, twitter, or __insert_site_here__, despite your best intentions?  I made this to help. http://www.mindfulbrowsing.org/
