@@ -13,7 +13,7 @@ SITE_SOURCE_DIR = os.path.abspath(os.path.join(os.getcwd(), "site"))
 PHOTO_EXTENSIONS = ["jpg", "jpeg", "png", "gif",]
 PHOTO_DATA_FILENAME = "photos.json"
 TIME_BETWEEN_IMAGES = datetime.timedelta(days=2)
-BASE_URL = "http://mindfulbrowsing.org/photos/"
+BASE_URL = "http://www.mindfulbrowsing.org/photos/"
 SCP_TARGET = os.environ["SCP_TARGET"]
 PHOTO_DATA_JS_PATH = os.path.abspath(os.path.join(os.getcwd(), "extension", "js", "photoInfo.js"))
 
@@ -46,13 +46,15 @@ def _datetime_to_ms_since_epoch(dt):
 def _ms_since_epoch_to_datetime(ms):
     return datetime.datetime.fromtimestamp(ms/1000)
 
-def bundle_images():
+def bundle_images(force_add=False):
+    if force_add == "True":
+        force_add = True
     _ensure_build_directory()
 
     try:
         photo_data_file = os.path.join(os.getcwd(), SITE_BUILD_DIR, PHOTO_DATA_FILENAME,)
         photos_info = json.load(open(photo_data_file, "r"))
-        next_start_date = _ms_since_epoch_to_datetime(photos_info["photos"][-1]["start_date"])
+        next_start_date = _ms_since_epoch_to_datetime(photos_info["photos"][-1]["start_date"]) + TIME_BETWEEN_IMAGES
     except:
         photos_info = {
             "photos": []
@@ -77,7 +79,7 @@ def bundle_images():
                 for p in photos_info["photos"]:
                     if file_sha in p["url"]:
                         already_added = True
-                if not already_added:
+                if not already_added or force_add:
                     print "Adding %s by %s" % (filename, credit["name"])
                     sha_filename = "%s.%s" % (file_sha, extension,)
                     photos_info["photos"].append({

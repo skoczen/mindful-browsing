@@ -1,0 +1,89 @@
+/* Lato Hairline */
+@font-face {
+    font-family:  'Lato';
+    src:          url('TypoPRO-Lato-Hairline.woff') format('woff'),
+    font-style:   normal;
+    font-weight:  100;
+    font-stretch: normal;
+    font-variant: normal;
+}
+
+
+/* Lato Hairline Italic */
+@font-face {
+    font-family:  'Lato';
+    src:          url('TypoPRO-Lato-HairlineItalic.woff') format('woff'),
+    font-style:   italic;
+    font-weight:  100;
+    font-stretch: normal;
+    font-variant: normal;
+}
+
+
+
+/* Lato Italic */
+@font-face {
+    font-family:  'Lato';
+    src:          url('TypoPRO-Lato-Italic.woff') format('woff'),
+    font-style:   italic;
+    font-weight:  normal;
+    font-stretch: normal;
+    font-variant: normal;
+}
+
+
+/* Lato Light */
+@font-face {
+    font-family:  'Lato';
+    src:          url('TypoPRO-Lato-Light.woff') format('woff'),
+    font-style:   normal;
+    font-weight:  300;
+    font-stretch: normal;
+    font-variant: normal;
+}
+
+
+/* Lato Light Italic */
+@font-face {
+    font-family:  'Lato';
+    src:          url('TypoPRO-Lato-LightItalic.woff') format('woff'),
+    font-style:   italic;
+    font-weight:  300;
+    font-stretch: normal;
+    font-variant: normal;
+}
+
+
+
+/* Lato Regular */
+@font-face {
+    font-family:  'Lato';
+    src:          url('TypoPRO-Lato-Regular.woff') format('woff'),
+    font-style:   normal;
+    font-weight:  normal;
+    font-stretch: normal;
+    font-variant: normal;
+}
+
+
+/* Lato Thin */
+@font-face {
+    font-family:  'Lato';
+    src:          url('TypoPRO-Lato-Thin.woff') format('woff'),
+    font-style:   normal;
+    font-weight:  200;
+    font-stretch: normal;
+    font-variant: normal;
+}
+
+
+/* Lato Thin Italic */
+@font-face {
+    font-family:  'Lato';
+    src:          url('TypoPRO-Lato-ThinItalic.woff') format('woff'),
+    font-style:   italic;
+    font-weight:  200;
+    font-stretch: normal;
+    font-variant: normal;
+}
+

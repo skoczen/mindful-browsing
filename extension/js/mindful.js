@@ -7,8 +7,11 @@
     var site_name = null;
     var rather = null;
     var was_in_timeout = false;
+    var syncFinished = false;
+    var localFinished = false;
     var timeouts;
     var currentPhoto;
+    var base64;
 
     // Storage:
     // {
@@ -33,8 +36,21 @@
       timeouts = settings.timeouts || {};
       currentPhoto = settings.currentPhoto || {};
       initialized = true;
-      init();
+      syncFinished = true;
+      initIfReady();
     });
+    chrome.storage.local.get('mindfulbrowsing', function(settings) {
+        console.log("local")
+        console.log(settings.mindfulbrowsing)
+        base64 = settings.mindfulbrowsing.base64 || {};
+        localFinished = true;
+        initIfReady();
+    });
+    var initIfReady = function() {
+        if (localFinished && syncFinished) {
+            init();
+        }
+    }
     var mindfulBrowsing = window.mindfulBrowsing || {};
     mindfulBrowsing.confirmClicked = function() {
         var ele = document.getElementById("mindfulBrowsingConfirm");
@@ -71,13 +87,19 @@
             }, function() {
               // Notify that we saved.
             });
+            chrome.storage.local.set({'mindfulbrowsing': {
+                "base64": base64,
+            }}, function() {
+              // Notify that we saved.
+              console.log("saved local")
+            });
         }
     };
     mindfulBrowsing.addOverlay = function() {
         rather = thingsToDo[Math.floor(Math.random() * thingsToDo.length)].title;
         var body = document.body;
         var html = document.documentElement;
-
+        console.log(currentPhoto)
         var height = Math.max( body.scrollHeight, body.offsetHeight,
             html.clientHeight, html.scrollHeight, html.offsetHeight );
         var go_verb = (was_in_timeout)? "stay on" : "spend time on";
@@ -96,8 +118,17 @@
         "<a href='" + currentPhoto["credit_url"] + "' id='mindfulBrowsingPhotoCredit'>Photo by " + currentPhoto["credit"] + "</a>"
         ].join("");
         ele.style.height = "100%";
-        ele.style.backgroundColor = "rgba(97, 144, 187, 0.92)";
-        ele.style.backgroundImage = "url('" + currentPhoto["url"] + "')";
+        // ele.style.backgroundColor = "rgba(97, 144, 187, 0.92)";
+        ele.style.background = "linear-gradient(to bottom, rgba(97,144,187,1) 0%,rgba(191,227,255,0.92) 100%)";
+
+        // ele.style.backgroundImage = "url('" + currentPhoto["url"] + "')";
+        console.log('base64')
+        console.log(base64)
+        if (base64 != undefined) {
+            ele.style.background = "inherit";
+            ele.style.backgroundColor = "rgba(97, 144, 187, 0.92)";
+            ele.style.backgroundImage = "url(" + base64 + ")";
+        }
         ele.style.backgroundSize = "cover";
         ele.style.backgroundPosition = "center center";
         ele.style.backgroundRepeat = "no-repeat";
@@ -109,7 +140,7 @@
     window.mindfulBrowsing = mindfulBrowsing;
     function init() {
         var now = new Date();
-        if (currentPhoto["next_update"] === undefined || currentPhoto["next_update"] < now.getTime()) {
+        if (base64 === undefined || currentPhoto["next_update"] === undefined || currentPhoto["next_update"] < now.getTime()) {
             var photo_index = 0;
             for (photo_index=0; photo_index<window.mindfulBrowsing.photoInfo.photos.length; photo_index++) {
                 if (window.mindfulBrowsing.photoInfo.photos[photo_index]["start_date"] > now.getTime()) {
@@ -119,6 +150,34 @@
             photo_index = (photo_index > 0) ? photo_index: 1;
             currentPhoto = window.mindfulBrowsing.photoInfo.photos[photo_index-1];
             currentPhoto["next_update"] = now.getTime() + (1000*60*60*2);
+
+            // Cache the photo offline.
+            console.log("opening request")
+            console.log(currentPhoto.url)    
+            var xmlHTTP = new XMLHttpRequest();
+            xmlHTTP.open('GET', currentPhoto.url, true);
+            xmlHTTP.responseType = 'arraybuffer';
+            xmlHTTP.onload = function(e) {
+                console.log("responded")
+                var arr = new Uint8Array(this.response);
+                var raw = '';
+                var i,j,subArray,chunk = 5000;
+                for (i=0,j=arr.length; i<j; i+=chunk) {
+                   subArray = arr.subarray(i,i+chunk);
+                   raw += String.fromCharCode.apply(null, subArray);
+                }
+                var b64=btoa(raw);
+                base64 = "data:image/jpeg;base64,"+b64;
+                console.log("base64")
+                console.log(base64)
+                mindfulBrowsing.saveSettings();
+                // If we're out of sync, update the image.
+
+                var ele = document.getElementById("mindfulBrowsingConfirm");
+                ele.style.backgroundImage = "url(" + base64 + ")";
+            };
+            console.log(xmlHTTP)
+            xmlHTTP.send();
             mindfulBrowsing.saveSettings();
         }
         for (var i in websites) {
