@@ -330,3 +330,19 @@ q:before, #mindfulBrowsingConfirm q:after {
     color: #777;
     transition: color 0.4 ease;
 }
+@media (max-width: 650px) and (max-height: 450px) {
+    #mindfulBrowsingConfirm {
+        display: none;
+    }
+}
+@media (max-height: 600px) {
+    #mindfulBrowsingConfirm .mindfulBrowsingHeading {
+        margin-bottom: 0;
+    }
+}
+@media (max-height: 450px) {
+    #mindfulBrowsingConfirm .mindfulBrowsingHeading {
+        margin-top: 20px;
+        padding: 0;
+    }
+}
