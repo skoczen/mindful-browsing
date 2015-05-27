@@ -1,2 +1,5 @@
+arrow
+tinys3
+boto
 fabric
 requests
