@@ -1,8 +1,14 @@
 - research some blogs, (merlin mann, mbg gal, etc to get the word out)
     https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=mindful%20browsing
 
+
+
 - 1.2:
+    - cache images offline
+    - disable for small popups
     - Add "mindfulness" to description text.
+
+- ??
     - update screenshots if sticking with new text
     - device-sized screenshots (x1280, x1600, 2000, full)
 

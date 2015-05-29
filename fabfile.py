@@ -1,15 +1,12 @@
 from fabric.api import *
-import arrow
 import boto
-from boto import connect_s3
 from boto.s3.connection import S3Connection, OrdinaryCallingFormat
 from boto.cloudfront import CloudFrontConnection
 import datetime
-from datetime import date, timedelta
 import distutils.core
 import email
 import errno
-import gzip
+import random
 import hashlib
 import json
 import mimetypes
@@ -76,6 +73,8 @@ def bundle_images(force_add=False):
         }
         next_start_date = datetime.datetime.now()
 
+    all_photos = []
+
     for root, folders, files in os.walk(IMAGES_SOURCE_DIR):
         for filename in files:
             photo_dir = False
@@ -83,32 +82,37 @@ def bundle_images(force_add=False):
             if os.path.exists(os.path.join(root, "credit.json")):
                 photo_dir = True
                 credit = json.load(open(os.path.join(root, "credit.json")))
+                credit["filename"] = filename
+                credit["root"] = root
+                all_photos.append(credit)
 
-            if photo_dir and any([ext in filename for ext in PHOTO_EXTENSIONS]):
-                file_path = os.path.join(root, filename)
-                file_sha = _file_sha(file_path)
-                extension = filename.split(".")[-1]
+    random.shuffle(all_photos)
+    for credit in all_photos:
+        if photo_dir and any([ext in credit["filename"] for ext in PHOTO_EXTENSIONS]):
+            file_path = os.path.join(credit["root"], credit["filename"])
+            file_sha = _file_sha(file_path)
+            extension = credit["filename"].split(".")[-1]
 
-                # Make sure it isn't already added.
-                already_added = False
-                for p in photos_info["photos"]:
-                    if file_sha in p["url"]:
-                        already_added = True
-                if not already_added or force_add:
-                    print "Adding %s by %s" % (filename, credit["name"])
-                    sha_filename = "%s.%s" % (file_sha, extension,)
-                    photos_info["photos"].append({
-                        "url": "%s%s" % (BASE_URL, sha_filename),
-                        "credit": credit["name"],
-                        "credit_url": credit["credit_url"],
-                        "start_date": _datetime_to_ms_since_epoch(next_start_date),
-                        "start_date_human": next_start_date.strftime("%b %d %Y"),
-                    })
-                    dest_path = os.path.abspath(os.path.join(SITE_BUILD_DIR, "photos", sha_filename))
-                    shutil.copyfile(file_path, dest_path)
-                    next_start_date = next_start_date + TIME_BETWEEN_IMAGES
-                else:
-                    print "Exists: %s by %s" % (filename, credit["name"])
+            # Make sure it isn't already added.
+            already_added = False
+            for p in photos_info["photos"]:
+                if file_sha in p["url"]:
+                    already_added = True
+            if not already_added or force_add:
+                print "Adding %s by %s" % (credit["filename"], credit["name"])
+                sha_filename = "%s.%s" % (file_sha, extension,)
+                photos_info["photos"].append({
+                    "url": "%s%s" % (BASE_URL, sha_filename),
+                    "credit": credit["name"],
+                    "credit_url": credit["credit_url"],
+                    "start_date": _datetime_to_ms_since_epoch(next_start_date),
+                    "start_date_human": next_start_date.strftime("%b %d %Y"),
+                })
+                dest_path = os.path.abspath(os.path.join(SITE_BUILD_DIR, "photos", sha_filename))
+                shutil.copyfile(file_path, dest_path)
+                next_start_date = next_start_date + TIME_BETWEEN_IMAGES
+            else:
+                print "Exists: %s by %s" % (credit["filename"], credit["name"])
 
     # mark last update
     photos_info["last_update"] = _datetime_to_ms_since_epoch(datetime.datetime.now())
