@@ -40,9 +40,13 @@
       initIfReady();
     });
     chrome.storage.local.get('mindfulbrowsing', function(settings) {
-        console.log("local")
-        console.log(settings.mindfulbrowsing)
-        base64 = settings.mindfulbrowsing.base64 || {};
+        // console.log("local")
+        // console.log(settings.mindfulbrowsing)
+        if (settings && settings.mindfulbrowsing && settings.mindfulbrowsing.base64) {
+            base64 = settings.mindfulbrowsing.base64 || {};
+        } else {
+            base64 = undefined;
+        }
         localFinished = true;
         initIfReady();
     });
@@ -50,7 +54,7 @@
         if (localFinished && syncFinished) {
             init();
         }
-    }
+    };
     var mindfulBrowsing = window.mindfulBrowsing || {};
     mindfulBrowsing.confirmClicked = function() {
         var ele = document.getElementById("mindfulBrowsingConfirm");
@@ -91,7 +95,7 @@
                 "base64": base64,
             }}, function() {
               // Notify that we saved.
-              console.log("saved local")
+              // console.log("saved local")
             });
         }
     };
@@ -99,7 +103,7 @@
         rather = thingsToDo[Math.floor(Math.random() * thingsToDo.length)].title;
         var body = document.body;
         var html = document.documentElement;
-        console.log(currentPhoto)
+        // console.log(currentPhoto)
         var height = Math.max( body.scrollHeight, body.offsetHeight,
             html.clientHeight, html.scrollHeight, html.offsetHeight );
         var go_verb = (was_in_timeout)? "stay on" : "spend time on";
@@ -122,8 +126,8 @@
         ele.style.background = "linear-gradient(to bottom, rgba(97,144,187,1) 0%,rgba(191,227,255,0.92) 100%)";
 
         // ele.style.backgroundImage = "url('" + currentPhoto["url"] + "')";
-        console.log('base64')
-        console.log(base64)
+        // console.log('base64')
+        // console.log(base64)
         if (base64 != undefined) {
             ele.style.background = "inherit";
             ele.style.backgroundColor = "rgba(97, 144, 187, 0.92)";
@@ -152,13 +156,13 @@
             currentPhoto["next_update"] = now.getTime() + (1000*60*60*2);
 
             // Cache the photo offline.
-            console.log("opening request")
-            console.log(currentPhoto.url)    
+            // console.log("opening request")
+            // console.log(currentPhoto.url)    
             var xmlHTTP = new XMLHttpRequest();
             xmlHTTP.open('GET', currentPhoto.url, true);
             xmlHTTP.responseType = 'arraybuffer';
             xmlHTTP.onload = function(e) {
-                console.log("responded")
+                // console.log("responded")
                 var arr = new Uint8Array(this.response);
                 var raw = '';
                 var i,j,subArray,chunk = 5000;
@@ -168,15 +172,15 @@
                 }
                 var b64=btoa(raw);
                 base64 = "data:image/jpeg;base64,"+b64;
-                console.log("base64")
-                console.log(base64)
+                // console.log("base64")
+                // console.log(base64)
                 mindfulBrowsing.saveSettings();
                 // If we're out of sync, update the image.
 
                 var ele = document.getElementById("mindfulBrowsingConfirm");
                 ele.style.backgroundImage = "url(" + base64 + ")";
             };
-            console.log(xmlHTTP)
+            // console.log(xmlHTTP)
             xmlHTTP.send();
             mindfulBrowsing.saveSettings();
         }

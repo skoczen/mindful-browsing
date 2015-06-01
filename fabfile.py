@@ -20,7 +20,7 @@ SITE_BUILD_DIR = os.path.abspath(os.path.join(os.getcwd(), "build"))
 SITE_SOURCE_DIR = os.path.abspath(os.path.join(os.getcwd(), "site"))
 PHOTO_EXTENSIONS = ["jpg", "jpeg", "png", "gif", ]
 PHOTO_DATA_FILENAME = "photos.json"
-TIME_BETWEEN_IMAGES = datetime.timedelta(days=2)
+TIME_BETWEEN_IMAGES = datetime.timedelta(days=1)
 BASE_URL = "http://www.mindfulbrowsing.org/photos/"
 SCP_TARGET = os.environ["SCP_TARGET"]
 PHOTO_DATA_JS_PATH = os.path.abspath(os.path.join(os.getcwd(), "extension", "js", "photoInfo.js"))
@@ -66,11 +66,12 @@ def bundle_images(force_add=False):
     try:
         photo_data_file = os.path.join(os.getcwd(), SITE_BUILD_DIR, PHOTO_DATA_FILENAME,)
         photos_info = json.load(open(photo_data_file, "r"))
-        next_start_date = _ms_since_epoch_to_datetime(photos_info["photos"][-1]["start_date"]) + TIME_BETWEEN_IMAGES
+        next_start_date = _ms_since_epoch_to_datetime(["photos"][-1]["start_date"]) + TIME_BETWEEN_IMAGES
     except:
-        photos_info = {
-            "photos": []
-        }
+        import traceback; traceback.print_exc();
+        # photos_info = {
+        #     "photos": []
+        # }
         next_start_date = datetime.datetime.now()
 
     all_photos = []
