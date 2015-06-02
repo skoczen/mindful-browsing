@@ -17,7 +17,7 @@ SITE_SOURCE_DIR = os.path.abspath(os.path.join(os.getcwd(), "site"))
 PHOTO_EXTENSIONS = ["jpg", "jpeg", "png", "gif", ]
 PHOTO_DATA_FILENAME = "photos.json"
 TIME_BETWEEN_IMAGES = datetime.timedelta(days=2)
-BASE_URL = "http://www.mindfulbrowsing.org/photos/"
+BASE_URL = "https://www.mindfulbrowsing.org/photos/"
 SCP_TARGET = os.environ["SCP_TARGET"]
 PHOTO_DATA_JS_PATH = os.path.abspath(os.path.join(os.getcwd(), "extension", "js", "photoInfo.js"))
 
