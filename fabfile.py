@@ -153,8 +153,8 @@ def deploy():
     bundle_images()
     bundle_app()
     build_site()
-    # deploy_site()
-    deploy_static()
+    deploy_site()
+    # deploy_static()
 
 
 def deploy_static():

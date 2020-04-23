@@ -1,5 +1,5 @@
 arrow
 tinys3
 boto
-fabric
+fabric<2
 requests

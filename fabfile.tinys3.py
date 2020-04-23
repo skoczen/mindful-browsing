@@ -182,7 +182,7 @@ def deploy_static():
 
     if os.path.exists('TEMP'):
         shutil.rmtree('TEMP')
-    set_last_run()
+    # set_last_run()
     # invalidate_cloudfront()
 
 
