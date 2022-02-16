@@ -117,7 +117,7 @@
         "</div>",
         "<div class='options'>",
             "<a class='mindfulBtn' id='mindfulBrowsingContinue' href='#'>Yes, 10 minutes.</a>",
-            "<a class='mindfulBtn' id='mindfulBrowsingLeave' href='javascript:window.open(location,\"_self\");window.close();'>Actually, nah.</a>",
+            "<a class='mindfulBtn' id='mindfulBrowsingLeave' href='https://google.com'>Actually, nah.</a>",
         "</div>",
         "<a href='" + currentPhoto["credit_url"] + "' id='mindfulBrowsingPhotoCredit'>Photo by " + currentPhoto["credit"] + "</a>"
         ].join("");
